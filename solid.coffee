@@ -53,7 +53,7 @@ renderOptions = (options) ->
 	s = ''
 	i = 1
 	for x in options
-		s += '' + i + '. ' + x.text + ' '
+		s += '' + i + '. ' + x.text + '&nbsp;&nbsp;'
 		i += 1
 	return s
 
@@ -64,7 +64,7 @@ success = () ->
 	BUFFER.push r
 	next = Q.next
 	action = Q.action
-	
+
 	if arguments[0]
 		next = Q.options[arguments[0]-1].next || Q.next || null
 		action = Q.options[arguments[0]-1].action || Q.action || null
@@ -82,13 +82,15 @@ success = () ->
 processInput = (e) ->
 	ERROR.innerHTML = ''
 	if e.keyCode == 13
-		if Q.validation
-			if Q.validation.test INPUT.value
+		if Q.validation and Q.options == undefined
+			if (Q.validation.test INPUT.value)
+				console.log 'hehehe'
 				success()
 			else
 				ERROR.innerHTML = Q.error || 'Invalid input. Please try again.'
 		else
 			#no validation, process input
+			console.log 'err'
 			success()
 
 	else if Q.end && (INPUT.value == '0' || INPUT.value.toUpperCase() == 'DONE')

@@ -1,31 +1,44 @@
 html, body {
 	margin: 0px auto 0px auto;
 	padding: 15px;
-	background-color: black;
-	color: green;
-	font-family: Times, 'Courier New', Courier, cursor, sans-serif;
+	background-color: #151515;
+	color: #eaeaea;
+	font-family:  Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
 	text-align: center;
-	font-size: 1.4em;
+	font-size: 1.2em;
+	line-height: 1.5;
+	letter-spacing: -1px;
 
 }
 
 input {
 	height: 35px;
 	font-size: 0.8em;
-	background-color: black;
-	color: green;
+	background-color: #151515;
+	color: #B5E853;
 	border: none;
 	outline: none;
-	font-family: Monaco, sans-serif;
+	font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
 
 }
 
 #error {
-	color : red;
+	color : #FD3F49;
 	font-weight: bold;
 }
 
 #options {
-	font-size: 0.8em;
-	color: blue;
+	font-size: 0.7em;
+	color: #63C0F5;
+}
+
+#message{
+		margin: 0px auto 0px auto;
+		height:200px;
+		width:600px;
+
+}
+
+#question{
+	color: #B5E853;
 }

@@ -79,6 +79,16 @@ success = () ->
 	renderQuestion QUESTIONS[next || DISPATCH.next()]
 
 
+back = () ->
+	#if the user hits escape, move to the previous page
+	
+	#remove current item
+	BUFFER.buffer.pop()
+	BUFFER.chain.pop()
+
+	#render the previous item
+	renderQuestion BUFFER.chain.pop()
+
 processInput = (e) ->
 	ERROR.innerHTML = ''
 	if e.keyCode == 13
@@ -93,6 +103,9 @@ processInput = (e) ->
 			console.log 'err'
 			success()
 
+	else if e.keyCode == 27 and BUFFER.chain.length > 1
+		back()
+
 	else if Q.end && (INPUT.value == '0' || INPUT.value.toUpperCase() == 'DONE')
 		success(0)
 
@@ -102,7 +115,6 @@ processInput = (e) ->
 			success(o)	
 		else 
 			ERROR.innerHTML = Q.error || ('Please enter a number 1 - ' + Q.options.length)
-		
 
 INPUT.addEventListener 'keyup', (e) -> processInput e
 document.addEventListener 'click', () -> INPUT.focus()

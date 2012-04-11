@@ -63,7 +63,7 @@ QUESTIONS.editSurvey =
 		}
 	]
 	action : ->
-		BUFFER.clear()
+		#BUFFER.clear()
 
 QUESTIONS.QuestionTitle =
 	#Question title has no next key because it is used for each question type.
